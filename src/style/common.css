@@ -1,0 +1,48 @@
+/*@font-face {*/
+
+/*font-family:'fzztjw';*/
+
+/*src: url('../font/SourceHanSansCN-Normal.otf');*/
+
+/*font-weight: normal;*/
+
+/*font-style: normal;*/
+
+/*}*/
+
+/*通用样式*/
+
+
+.ti2 {
+    text-indent: 2em;
+}
+.fwb {
+    font-weight: bold;
+}
+
+.dn {
+    display: none!important;
+}
+.w1200 {
+    width: 1200px;
+    margin: 0 auto;
+}
+.brbs {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.el-form-item__label {
+    font-size: 16px;
+    color: #333;
+    padding-right: 7px;
+}
+
+.el-input__inner {
+    color: #333;
+}
+.el-input {
+    font-size: 16px;
+}
+.el-textarea {
+    font-size: 16px;
+}
