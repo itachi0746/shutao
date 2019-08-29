@@ -9,7 +9,7 @@
                 <ul class="header-ul" v-if="hData.length">
                     <li :class="{'active': item.partCode===activeItem}" v-for="(item,index) in hData" :key="index"
                         @click="clickLi(item.partCode)">
-                        <a :href="item.href">
+                        <a :class="item.acls" :href="item.href">
                             {{item.name}}
                         </a>
                     </li>
@@ -38,13 +38,13 @@ export default {
                 { partCode: 'L6', link: 'contact.html' },
             ],
             hData: [
-                {href: 'index.html', name: '首页', partCode: 'L1' },
-                {href: '#L2', name: '关于我们', partCode: 'L2' },
-                {href: '#L3', name: '服务范围', partCode: 'L3' },
-                {href: '#L4', name: '产品', partCode: 'L4' },
-                {href: '#L5', name: '合作伙伴', partCode: 'L5' },
-                {href: '#L6', name: '客户列表', partCode: 'L6' },
-                {href: 'about.html', name: '联系我们', partCode: 'L7' }
+                {href: 'index.html', name: '首页', partCode: 'L1', acls: 'a' },
+                {href: '#L2', name: '关于我们', partCode: 'L2', acls: 'b' },
+                {href: '#L3', name: '服务范围', partCode: 'L3', acls: 'b' },
+                {href: '#L4', name: '产品', partCode: 'L4', acls: 'a' },
+                {href: '#L5', name: '合作伙伴', partCode: 'L5', acls: 'b' },
+                {href: '#L6', name: '客户列表', partCode: 'L6', acls: 'b' },
+                {href: 'about.html', name: '联系我们', partCode: 'L7', acls: 'b' }
             ],
             resData: null
         }
@@ -130,28 +130,56 @@ export default {
             /*height: 42px;*/
             height: 100%;
             /*width: 73px;*/
-            min-width: 73px;
+            /*min-width: 73px;*/
             text-align: center;
             /*line-height: 42px;*/
             line-height:25px;
-            border-bottom: 2px solid transparent;
-            margin-right: 15px;
+            /*border-bottom: 2px solid transparent;*/
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-right: 39px;
         }
         li.active {
-            border-bottom: 2px solid $activeColor;
             color: $activeColor;
+
+            a.a::after {
+                display: block!important;
+            }
+            a.b::after {
+                display: block!important;
+            }
         }
         a {
             width: 100%;
             height: 100%;
             /*text-align: center;*/
             @include defaultFlex;
-
+            position: relative;
             /*display: inline-block;*/
+        }
+
+        a.a::after {
+            left: -17px;
+            display: none;
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            width:66px;
+            height:2px;
+            background-color: $activeColor;
+        }
+        a.b::after {
+            display: none;
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0px;
+            width:66px;
+            height:2px;
+            background-color: $activeColor;
+
         }
     }
 

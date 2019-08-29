@@ -35,6 +35,8 @@
     font-size: 16px;
     color: #333;
     padding-right: 7px;
+    text-align: justify;
+    text-align-last: justify;
 }
 
 .el-input__inner {
