@@ -1,6 +1,6 @@
 <template>
     <div class="lunbo" ref="lunbo">
-        <Carousel :height="elHeight">
+        <Carousel :height="elHeight + 'px'">
             <CarouselItem v-for="(item,index) in lunboArr" :key="index">
                 <img class="el-img" :src="item.img" alt="">
             </CarouselItem>
@@ -18,7 +18,7 @@ export default {
                 {img: require('../assets/banner2.png')},
                 {img: require('../assets/banner.png')},
             ],
-            elHeight: '700px' // 设计图的高
+            elHeight: 700 // 设计图的高
         }
     },
     props: {
@@ -38,7 +38,7 @@ export default {
          */
         setBannerHeight () {
             const theH = this.$refs['lunbo'].offsetHeight
-            this.elHeight = theH + 'px'
+            this.elHeight = theH
         },
         init () {
             this.handleResize()
@@ -52,7 +52,7 @@ export default {
                 resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
                 recalc = () => {
                     const theH = me.$refs['lunbo'].offsetHeight
-                    me.elHeight = theH + 'px'
+                    me.elHeight = theH
                 }
             window.addEventListener(resizeEvt, recalc, false)
         }

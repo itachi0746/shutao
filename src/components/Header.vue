@@ -147,9 +147,11 @@ export default {
         }
         a {
             width: 100%;
-            /*height: 100%;*/
-            text-align: center;
-            display: inline-block;
+            height: 100%;
+            /*text-align: center;*/
+            @include defaultFlex;
+
+            /*display: inline-block;*/
         }
     }
 

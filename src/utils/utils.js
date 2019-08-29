@@ -27,6 +27,21 @@ export default {
         }
         return args
     },
+    // 得到dom样式
+    getStyle (dom) {
+        // 兼容IE和火狐谷歌等的写法
+        let computedStyle;
+        if (window.getComputedStyle) {
+            computedStyle = getComputedStyle(dom, null)
+        } else {
+            computedStyle = dom.currentStyle;//兼容IE的写法
+        }
+        return computedStyle
+    },
+    // 去掉px 返回整数
+    delPx (str) {
+        return parseFloat(str.replace('px', ''))
+    },
     IOSConfig: function () {
         let userAgent = navigator.userAgent
         if (userAgent.indexOf('iPhone') > -1 || userAgent.indexOf('Mac') > -1) {
@@ -447,7 +462,7 @@ export default {
             console.log(`目标字符不存在: ${str},${target}`)
             return str
         }
-        return str.substr(0, i)
+        return str.substr(0, i) // todo
     },
     /**
      * 检查统一社会信用代码

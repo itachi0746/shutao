@@ -1,9 +1,9 @@
 <template>
     <div class="app" id="L1">
         <Header :activeItem.sync="activeItem"/>
-        <div class="headerfillter"></div>
+        <div class="headerfillter" ref="header"></div>
 
-        <Lunbo/>
+        <Lunbo ref="lunbo"/>
         <!--<PartTitle id="L2" :nameEg="'About us'" :nameCh="'关于我们'"></PartTitle>-->
         <!--<div class="w1200">-->
             <!--<div class="part part1">-->
@@ -21,7 +21,7 @@
             <!--</div>-->
         <!--</div>-->
 
-        <div class="part part1">
+        <div class="part part1" ref="part1">
             <PartTitle id="L2" :nameEg="'About us'" :nameCh="'关于我们'"></PartTitle>
             <div class="w1200">
                 <div class="part1-inner">
@@ -41,7 +41,7 @@
         </div>
 
 
-        <div class="part part2">
+        <div class="part part2" ref="part2">
             <PartTitle id="L3" :nameEg="'Service scope'" :nameCh="'服务范围'"></PartTitle>
             <div class="w1200">
                 <el-row>
@@ -57,7 +57,7 @@
                 </el-row>
             </div>
         </div>
-        <div class="part part3">
+        <div class="part part3" ref="part3">
             <PartTitle id="L4" :nameEg="'Our products'" :nameCh="'我们的产品'"></PartTitle>
             <div class="w1200">
                 <el-row :gutter="10">
@@ -73,7 +73,7 @@
                 </el-row>
             </div>
         </div>
-        <div class="part part4">
+        <div class="part part4" ref="part4">
             <PartTitle id="L5" :nameEg="'PARTNERS'" :nameCh="'合作伙伴'"></PartTitle>
             <div class="w1200">
                 <el-row :gutter="10">
@@ -89,7 +89,7 @@
                 </el-row>
             </div>
         </div>
-        <div class="part part5">
+        <div class="part part5" ref="part5">
             <PartTitle id="L6" :nameEg="'CLIENT LIST'" :nameCh="'客户列表'"></PartTitle>
             <div class="w1200">
                 <el-row :gutter="10">
@@ -116,6 +116,7 @@ import Footer from '../../components/Footer.vue'
 import Lunbo from '../../components/Lunbo.vue'
 import PartTitle from '../../components/PartTitle.vue'
 import indexData from '../../utils/indexData'
+import utils from '../../utils/utils'
 
 export default {
     name: '',
@@ -131,7 +132,8 @@ export default {
     data () {
         return {
             activeItem: 'L1',
-
+            activeItemArr: ['L1','L2','L3','L4','L5','L6'],
+            heightArr: []
         }
     },
 
@@ -143,7 +145,7 @@ export default {
     },
 
     mounted () {
-        window.addEventListener('scroll',this.winScroll);
+//        window.addEventListener('scroll',this.winScroll);
     },
 
     destroyed () {
@@ -154,6 +156,38 @@ export default {
 //            console.log(e)
             var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop; // 滚动高度
             console.log(scrollTop)
+
+            utils.hasSetRem(this.getHeight)
+            debugger
+            if (scrollTop >= this.heightArr[0] + this.heightArr[1]) {
+                this.activeItem = this.activeItemArr[1]
+            }
+            else if (scrollTop >= this.heightArr[0] + this.heightArr[1] + this.heightArr[2]) {
+                this.activeItem = this.activeItemArr[2]
+            }
+            else if (scrollTop >= this.heightArr[0] + this.heightArr[1] + this.heightArr[2] + this.heightArr[3]) {
+                this.activeItem = this.activeItemArr[3]
+            }
+            else if (scrollTop >= this.heightArr[0] + this.heightArr[1] + this.heightArr[2] + this.heightArr[3]  + this.heightArr[4]) {
+                this.activeItem = this.activeItemArr[4]
+            }
+        },
+        getHeight () {
+            this.heightArr = []
+            const headH = this.$refs.header.offsetHeight
+            const lunboH = this.$refs.lunbo.elHeight
+
+            const p1 = utils.getStyle(this.$refs.part1)
+            const p2 = utils.getStyle(this.$refs.part2)
+            const p3 = utils.getStyle(this.$refs.part3)
+            const p4 = utils.getStyle(this.$refs.part4)
+            const p1H = utils.delPx(p1.height) + utils.delPx(p1.marginBottom)
+            const p2H = utils.delPx(p2.height) + utils.delPx(p2.marginBottom)
+            const p3H = utils.delPx(p3.height) + utils.delPx(p3.marginBottom)
+//            const p4H = utils.delPx(p4.height) + utils.delPx(p4.marginBottom)
+
+            this.heightArr = [headH, lunboH, p1H, p2H, p3H]
+
         }
     }
 }
