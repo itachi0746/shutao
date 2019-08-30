@@ -67,7 +67,20 @@
                                 <div class="part3-item-img brbs" :style="{'backgroundImage': `url(${item.img})`}"></div>
                             </div>
                             <div class="part2-item-title fwb">{{item.name}}</div>
-                            <div class="part3-item-font">{{item.font}}</div>
+                            <div class="part3-item-font" v-if="item.name!=='PaaS开发框架'">{{item.font}}</div>
+                            <div v-else>
+                                <ul class="pass-ul">
+                                    <li>
+                                        <div class="pass-div">分布式计算基础模型</div>
+                                    </li>
+                                    <li>
+                                        <div class="pass-div">分布式数据访问及存储模型</div>
+                                    </li>
+                                    <li>
+                                        <div class="pass-div">分布式部署及管理模型</div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </el-col>
                 </el-row>
@@ -344,4 +357,23 @@ export default {
     .part1-inner {
         display: flex;
     }
+    .pass-ul {
+        font-size: 14px;
+
+        .pass-div {
+            line-height: 39px;
+        }
+        .pass-div::before {
+            content: '';
+            width:8px;
+            height:8px;
+            background:rgba(110,110,110,1);
+            border-radius:50%;
+            display: inline-block;
+            margin-right: 7px;
+            /*margin-bottom: 2px;*/
+        }
+    }
+
+
 </style>

@@ -67,13 +67,21 @@ export default {
 
     }
     .part-title-line {
+
+        margin-top: 5px;
+        position: relative;
+        @include defaultFlex;
+    }
+    .part-title-line::after {
+        content: '';
+
         width:164px;
         height:2px;
         background:rgba(218,231,240,1);
-        margin-top: 5px;
     }
-    .part-title-inner {
 
+    .part-title-inner {
+        position: relative;
     }
 
 </style>

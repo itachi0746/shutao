@@ -48,3 +48,18 @@
 .el-textarea {
     font-size: 16px;
 }
+
+.el-carousel__arrow {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(191, 191, 191, 0.7);
+}
+.el-carousel__arrow i {
+    font-size: 40px;
+}
+.el-carousel__arrow--left {
+    left: 269px;
+}
+.el-carousel__arrow--right {
+    right: 269px;
+}
