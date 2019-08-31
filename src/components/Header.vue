@@ -68,6 +68,10 @@ export default {
     },
     methods: {
         clickLi (partCode) {
+            const curpage = window.location.pathname
+            if (curpage.indexOf('about')!==-1) {
+                window.location.href = 'index.html#' + partCode
+            }
             this.$emit('update:activeItem',partCode);
         }
     }

@@ -90,11 +90,11 @@
             <PartTitle id="L5" :nameEg="'PARTNERS'" :nameCh="'合作伙伴'"></PartTitle>
             <div class="w1200">
                 <el-row :gutter="10">
-                    <el-col :span="6" :offset="9" v-for="(item,index) in part4Data">
+                    <el-col :span="6" :offset="index===0?9:0" v-for="(item,index) in part4Data">
                         <div class="part4-item">
                             <!--<div class="part4-item-img" :style="{'backgroundImage': `url(${item.img})`}">-->
                             <div class="part4-item-img">
-                                <img :src="item.img" alt="">
+                                <img :class="item.cls" :src="item.img" alt="">
                             </div>
                             <div class="part4-item-name">{{item.name}}</div>
                         </div>
@@ -104,7 +104,7 @@
         </div>
         <div class="part part5" ref="part5">
             <PartTitle id="L6" :nameEg="'CLIENT LIST'" :nameCh="'客户列表'"></PartTitle>
-            <div class="w1200">
+            <div class="w954">
                 <el-row :gutter="10">
                     <el-col :span="6" v-for="(item,index) in part5Data">
                         <div class="part5-item">
@@ -266,6 +266,8 @@ export default {
         text-align: center;
         font-size: 14px;
         line-height:24px;
+        width: 220px;
+        margin: 0 auto;
     }
     .part3-item-font {
         text-align: center;
@@ -291,12 +293,18 @@ export default {
         height: 134px;
         @include defaultFlex;
         margin: 0 auto;
+        border:1px solid rgba(204,204,204,1);
+        border-radius:8px;
         /*background-size: contain;*/
         /*background-repeat: no-repeat;*/
         /*background-position: center;*/
-        img {
+        .img1 {
             width: 172px;
             height: 59px;
+        }
+        .img2 {
+            width: 260px;
+            height: 45px;
         }
     }
     .part4-item-name {
@@ -307,13 +315,16 @@ export default {
         margin: 16px auto 0;
     }
     .part5-item-img {
-        /*width: 216px;*/
-        width: 100%;
+        width: 216px;
+        /*width: 100%;*/
         height: 116px;
+        margin: 0 auto;
         @include defaultFlex;
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
+        border:1px solid rgba(204,204,204,1);
+        border-radius:8px;
         img {
             width: 100%;
             height: 100%;

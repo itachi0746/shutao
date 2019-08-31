@@ -14,7 +14,7 @@ let myMixin = {
                 },
                 {
                     name: '企业级应用平台快速开发框架',
-                    font: '为企业提供公有云和私有云应用快速开发的系统框架，基本的公共模块和高可扩展的弹性架构可以为企业节省大量的研发费用和时间。',
+                    font: '为企业提供公有云和私有云应用快速开发的系统框架，基本的公共模块和高可扩展的弹性架构可以为企业节省大量的研发费用和时间',
                     img: require('../assets/qiyejiyingyong.png')
                 },
                 {
@@ -41,15 +41,21 @@ let myMixin = {
                 },
                 {
                     name: 'Party互动',
-                    font: '一站式整合服务，线下门店、线上营销与商家自营公众号无缝对接。集点餐、收银、管理、营销为一体，全面提升门店经营，提高管理效率，支持多种设备使用，支持多种方式支付。',
+                    font: '一款屏幕控制播放软件，集多种应用场景与一身：企业年会、校园活动、婚礼婚庆、活动演出等。红包雨，弹幕抽奖等特效应有尽有，操作简单便捷，让活动变高效、好玩、方便。',
                     img: require('../assets/icon_partyhudong.png')
                 },
             ],
             part4Data: [
                 {
-                    name: '广州接入信息科技有限公司',
-                    img: require('../assets/zhizao.png')
-                }
+                    name: '深圳市智造建筑信息科技有限公司',
+                    img: require('../assets/zhizao.png'),
+                    cls: 'img1'
+                },
+                // {
+                //     name: '广州接入信息科技有限公司',
+                //     img: require('../assets/jieru.jpg'),
+                //     cls: 'img2'
+                // },
             ],
             part5Data: [
                 {
