@@ -6,7 +6,11 @@
                 <div class="code-name">公众号</div>
             </div>
             <div class="footer-mid">
-                <div class="footer-mid-line1">备案: 粤ICP备19081095号 </div>
+                <div class="footer-mid-line1">
+                    <a href="http://www.beian.miit.gov.cn/">
+                        备案: 粤ICP备19081095号
+                    </a>
+                </div>
                 <div>
                     © 2019 广州数淘网络信息有限公司 .
                 </div>
@@ -92,6 +96,9 @@ export default {
     }
     .footer-mid-line1 {
         margin-bottom: 10px;
+        a {
+            color: #fff;
+        }
     }
     .footer-r {
         padding: 44px 45px 42px 25px;
